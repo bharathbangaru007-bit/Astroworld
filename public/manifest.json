@@ -1,0 +1,16 @@
+{
+  "short_name": "Astroworld",
+  "name": "Astroworld: Cosmic Wisdom",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2582/2582101.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#6366F1",
+  "background_color": "#0F172A"
+}

@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores user birth details and preferences for astrology calculations.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "birthDate": { "type": "string", "format": "date" },
+        "birthTime": { "type": "string" },
+        "birthPlace": { "type": "string" },
+        "location": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" },
+            "timezone": { "type": "string" }
+          }
+        },
+        "preferences": {
+          "type": "object",
+          "properties": {
+            "chartStyle": { "type": "string", "enum": ["north", "south"] },
+            "ayanamsa": { "type": "string", "enum": ["lahiri", "raman"] }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "birthDate", "birthTime", "birthPlace"]
+    },
+    "Reading": {
+      "title": "Astrology Reading",
+      "description": "Cached or saved readings containing chart data and AI interpretations.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string", "enum": ["daily", "life_timeline", "remedy_analysis"] },
+        "chartData": { "type": "object" },
+        "interpretation": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile and birth data."
+    },
+    "/users/{userId}/readings/{readingId}": {
+      "schema": "Reading",
+      "description": "Personalized astrological readings."
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Astroworld",
+  "description": "Premium Vedic and Nadi Shastram astrology platform featuring Dasha timelines, thumb impression analysis, and AI-powered karmic insights.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}
